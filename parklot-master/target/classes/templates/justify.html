@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <title>MainPage</title>
+
+</head>
+<body>
+<div class="container ">
+
+    <div class="col-md-offset-5">
+        <table>
+        <tr><form action="justify">
+            <button class="btn btn-default btn-lg">待审核</button>
+        </form>
+        <form action="has_justified">
+            <button class="btn btn-default btn-lg">已审核</button>
+        </form></tr></table>
+    </div>
+    <form action="sort" >
+    <div class="col-md-offset-9">
+        <button type="submit" class="btn btn-default">时间排序</button>
+    </div>
+    </form>
+    <div class="col-md-offset-1">
+        <table class="table">
+            <tr th:each="lot:${applied_lots}">
+                <td>名称</td><td th:text="${lot.lot_name}"></td><td>地址</td><td th:text="${lot.lot_addr}"></td>
+                <td>时间</td><td th:text="${lot.time}"></td><!--<td>id</td><td th:text="${lot.id}"></td>-->
+                <td><a class="btn btn-sm" th:href="@{'/lot?id='+${lot.id}}">现场审核</a></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    function toSubmit(id) {
+        window.location.href="/lot?id="+id;
+    }
+
+    function checkname(){
+            ischeck = false;
+            //alert(ischeck)
+            if(document.getElementById("name").value==""){
+                alert("name must not be empty!");
+                document.getElementById("name").focus();
+                //ischeck = false;
+                //return false;
+            }else{
+                ischeck = true;
+                //location.href="stu_test.asp";
+                document.form1.action="stu_test.asp";
+                document.form1.submit();
+            }
+
+        }
+
+</script>
+</html>

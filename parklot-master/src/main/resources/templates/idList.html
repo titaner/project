@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<meta charset="UTF-8"/>-->
+    <title>添加停车库信息</title>
+
+</head>
+<body>
+
+<h2 style="text-align: center">停车场信息管理</h2>
+<form action="selectById" style="text-align: center">
+    ID:<input type="text" name="id" />
+    <input type="submit" value="筛选" placeholder="输入ID" />
+</form>
+<p  align="center"><a href="${pageContext.request.contextPath}/list">显示全部</a>
+    <a href="${pageContext.request.contextPath}/toAdd">添加</a>
+</p>
+
+
+<table border="1" align="center" width="80%">
+    <tr>
+        <td>停车场编号</td>
+        <td>地点</td>
+        <td>描述</td>
+        <td>管理</td>
+        <td>商圈地址</td>
+
+        <td>费用类型</td>
+        <td>管辖街道</td>
+        <td>产权</td>
+        <td>营业性质</td>
+        <td>充电桩</td>
+
+        <td>充电桩数量</td>
+        <td>楼高</td>
+        <td>占地</td>
+        <td>入口数</td>
+        <td>出口数</td>
+    </tr>
+
+    <tr th:each="p:${ids}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.location}"></td>
+        <td th:text="${p.description}"></td>
+        <td th:text="${p.manage_attrib}"></td>
+        <td th:text="${p.business_circle_pos}"></td>
+
+        <td th:text="${p.fee_id}"></td>
+        <td th:text="${p.district_street}"></td>
+        <td th:text="${p.property_rights}"></td>
+        <td th:text="${p.attribute}"></td>
+        <td th:text="${p.has_charging_pile}"></td>
+
+        <td th:text="${p.charging_pile_num}"></td>
+        <td th:text="${p.building_height}"></td>
+        <td th:text="${p.cover_area}"></td>
+        <td th:text="${p.import_path_num}"></td>
+        <td th:text="${p.export_path_num}"></td>
+        <td>
+            <a href="${pageContext.request.contextPath}/update?id=${p.id}">修改</a>
+        </td>
+        <td>
+            <a href="${pageContext.request.contextPath}/delete?id=${p.id}">删除</a>
+            <!-- <a href="${pageContext.request.contextPath}/toUpdate?id=${p.id}">修改</a>  -->
+        </td>
+    </tr>
+</table>
+</body>
+</html>

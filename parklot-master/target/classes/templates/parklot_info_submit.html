@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>MainPage</title>
+
+</head>
+<body>
+<div class="container">
+
+    <form action="insertLot" class="form-horizontal" role="form">
+        <div class="text-center">
+            <button type="button" class="btn btn-default">基本信息</button>
+            <button type="button" class="btn btn-default">绘制地图</button>
+            <input type="submit" class="btn btn-default" value="提交信息"/>
+
+            <div class="container" th:object="${lot}">
+
+                <!--<span>名称:</span><input type="text" th:value="*{lot_name}"/><br/>-->
+                <!--<span>地址:</span><input type="text" th:value="*{lot_addr}"/><br/>-->
+                <!--<span>ID:</span><input type="text" th:value="*{id}"/><br/>-->
+                <!--<span>产权人:</span><input type="text" th:value="*{property_right}"/><br/>-->
+                <!--<span>所属建筑/单位:</span><input type="text" th:value="*{owner_building}"/><br/>-->
+                <!--<span>联系电话:</span><input type="text" th:value="*{tel}"/><br/>-->
+
+                <table class="table table-condensed">
+                    <tr><td>名称:</td><td><input type="text" name="lot_name" th:value="*{lot_name}"/></td></tr>
+                    <tr><td>地址:</td><td><input type="text" name="lot_addr" th:value="*{lot_addr}"/></td></tr>
+                    <tr><td>ID:</td><td><input type="text" name="id" th:value="*{id}"/></td></tr>
+                    <tr><td>产权人:</td><td><input type="text" name="property_right" th:value="*{property_right}"/></td></tr>
+                    <tr><td>所属建筑/单位:</td><td><input type="text" name="owner_building" th:value="*{owner_building}"/></td></tr>
+                    <tr><td>联系电话:</td><td><input type="text" name="tel" th:value="*{tel}" /></td></tr>
+                    <tr><td>是否路外/内：</td><td><lable><input type="radio" name="is_out_road" id="luwai" value="true"/>路外</lable></td><td><lable><input type="radio" name="is_out_road" value="false"/>路内</lable></td></tr>
+                    <tr><td>是否路上/下/立体：</td><td><input type="radio" name="on_road" value="地上"/>地上</td><td><input type="radio" name="on_road" value="地下"/>地下</td><td><input type="radio" name="on_road" value="立体"/>立体</td></tr>
+                    <tr><td>是否有充电桩：</td><td><input type="radio" name="has_charging_pile" value="true"/>有</td><td><input type="radio" name="has_charging_pile" value="false"/>无</td></tr>
+                    <tr><td>是否对外开放：</td><td><input type="radio" name="open_to_public" value="开放"/>开放</td><td><input type="radio" name="open_to_public" value="不开放"/>不开放</td><td><input type="radio" name="open_to_public" value="限时开放"/>限时开放</td></tr>
+                    <tr><td>是否收费：</td><td><input type="radio" name="free_fee" value="收费"/>收费</td><td><input type="radio" name="free_fee" value="免费"/>免费</td><td><input type="radio" name="free_fee" value="限时免费"/>限时免费</td></tr>
+                    <tr><td>支付方式:</td><td><input type="radio" name="pay_method" value="微信"/>微信</td><td><input type="radio" name="pay_method" value="支付宝"/>支付宝</td></tr>
+                </table>
+            </div>
+
+            <!--<table class="table ">-->
+                <!--<tr th:each="lot:${lot}"></tr>-->
+                    <!--<tr><td>名称:</td><td><input type="text" name="lot_name" value="${lot.lot_name}"/></td></tr>-->
+                    <!--<tr><td>地址:</td><td><input type="text" name="lot_addr" value="${lot.lot_addr}"/></td></tr>-->
+                    <!--<tr><td>ID:</td><td><input type="text" name="id" value="${lot.id}"/></td></tr>-->
+                    <!--<tr><td>产权人:</td><td><input type="text" name="property_right" value="${lot.property_right}"/></td></tr>-->
+                    <!--<tr><td>所属建筑/单位:</td><td><input type="text" name="owner_building" value="${lot.owner_building}"/></td></tr>-->
+                    <!--<tr><td>联系电话:</td><td><input type="text" name="tel" value="${lot.tel}" /></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="is_out_road" value="${lot.is_out_road}"/></td><td><input type="radio" name="is_out_road" value="${lot.is_out_road}"/></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="on_road" value="${lot.on_road}"/></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="has_charging_pile" value="${lot.has_charging_pile}"/></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="open_to_public" value="${lot.open_to_public}"/></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="free_fee" value="${lot.free_fee}"/></td></tr>-->
+                    <!--<tr><td></td><td><input type="radio" name="pay_method" value="${lot.pay_method}"/></td></tr>-->
+
+            <!--<tr>-->
+                <!--<td><label class="col-sm-2 control-label">名称</label></td>-->
+                <!--<td><div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control" name="lot_name" value="${lot.lot_name}"/>-->
+                <!--</div></td>-->
+            <!--</tr>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-2 control-label">地址</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control" name="lot_addr" value="${lot.lot_addr}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-sm-2 control-label">I.D.</label>-->
+                <!--<span class="col-sm-8">-->
+                <!--<input type="text" class="form-control" name="id" value="${lot.id}"/>-->
+            <!--</span>-->
+                <!--<span >-->
+				<!--<button type="button" class="btn btn-default">编制</button>-->
+			<!--</span>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-2 control-label">产权人</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control" name="property_right" value="${lot.property_right}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-sm-2 control-label">所属建筑/单位</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control" name="owner_building" value="${lot.owner_building}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-sm-2 control-label">联系电话</label>-->
+                <!--<div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control" name="tel" value="${tel}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="is_out_road" id="optionsRadios1_1" value="路外" checked="checked"/> 路外-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="is_out_road" id="optionsRadios1_2"  value="路内"/> 路内-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="on_road" id="optionsRadios2_1" value="地上" checked="checked"/> 地上-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="on_road" id="optionsRadios2_2"  value="地下"/> 地下-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="on_road" id="optionsRadios2_3"  value="立体"/> 立体-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--是否有充电桩-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="has_charging_pile" id="optionsRadios3_1" value="true" checked="checked"/> 有-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="has_charging_pile" id="optionsRadios3_2"  value="false"/> 无-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--是否对外开放-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="open_to_public" id="optionsRadios4_1" value="开放" checked="checked"/> 开放-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="open_to_public" id="optionsRadios4_2"  value="不开放"/> 不开放-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="open_to_public" id="optionsRadios4_2"  value="限时开放"/> 限时开放-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--是否收费-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="free_fee" id="optionsRadios5_1" value="收费" checked="checked"/> 收费-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="free_fee" id="optionsRadios5_2"  value="免费"/> 免费-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="free_fee" id="optionsRadios5_2"  value="限时免费"/> 限时免费-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--缴费方式-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_1" value="微信" checked="checked"/> 微信-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_2"  value="支付宝"/> 支付宝-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_3"  value="ETC"/> ETC-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_4"  value="咪表"/> 咪表-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_5"  value="月卡"/> 月卡-->
+                <!--</label>-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="pay_method" id="optionsRadios6_6"  value="手工计费"/> 手工计费-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <!--</table>-->
+        </div>
+    </form>
+</div>
+</body>
+<script>
+
+    $(function(){
+        var lot2='${lot}';
+        if(lot2.is_out_road=='1'){
+            document.getElementsById("luwai").checked=true;
+        }
+    })
+</script>
+</html>

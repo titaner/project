@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <title>添加停车库信息</title>
+    <style type="text/css">
+        input{width: 100%}
+
+    </style>
+</head>
+<body>
+<form action="add"  method="post">
+    <table border="1" align="center" width="30%">
+    <tr><td width="18%">停车场编号:</td><td><input type="text" name="id" /></td></tr>
+        <tr><td>地点:</td><td><input type="text" name="location" /></td></tr>
+        <tr><td>描述:</td><td><input type="text" name="description" /></td></tr>
+        <tr><td>管理:</td><td><input type="text" name="manage_attrib" /></td></tr>
+        <tr><td>商圈地址:</td><td><input type="text" name="business_circle_pos" /></td></tr>
+        <tr><td>费用类型:</td><td><input type="text" name="fee_id" /></td></tr>
+        <tr><td>管辖街道:</td><td><input type="text" name="district_street" /></td></tr>
+        <tr><td>产权:</td><td><input type="text" name="property_rights" /></td></tr>
+        <tr><td>营业性质:</td><td><input type="text" name="attribute" /></td></tr>
+        <tr><td>充电桩:</td><td><input type="text" name="has_charging_pile" /></td></tr>
+        <tr><td>充电桩数量:</td><td><input type="text" name="charging_pile_num" /></td></tr>
+        <tr><td>楼高:</td><td><input type="text" name="building_height" /></td></tr>
+        <tr><td>占地:</td><td><input type="text" name="cover_area" /></td></tr>
+        <tr><td>入口数:</td><td><input type="text" name="import_path_num" /></td></tr>
+        <tr><td>出口数:</td><td><input type="text" name="export_path_num" /></td></tr>
+        <tr><td><input type="submit" value="submit"/></td></tr>
+    </table>
+</form>
+</body>
+</html>
